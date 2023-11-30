@@ -52,7 +52,7 @@ const App = () => {
         <Input autoComplete='off' prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Name" />
       </Form.Item>
       <Form.Item wrapperCol={{ span: 12, offset: 3 }}>
-      <Button type="primary" htmlType="submit" className="login-form-button" disabled={isLoading}>
+      <Button type="primary" className={`add-btn`} htmlType="submit" className="login-form-button" disabled={isLoading}>
               {isLoading? 'loading...' : 'Reset Password'}
             </Button>
         {/* <Space>

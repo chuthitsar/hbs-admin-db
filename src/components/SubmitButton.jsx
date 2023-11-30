@@ -21,7 +21,7 @@ const SubmitButton = ({ form }) => {
         );
     }, [form,values]);
     return (
-      <Button type="primary" htmlType="submit" disabled={!submittable}>
+      <Button type="primary" className={`add-btn`} htmlType="submit" disabled={!submittable}>
         Reset Password
       </Button>
     );

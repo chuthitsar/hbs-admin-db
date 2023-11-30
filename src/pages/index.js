@@ -14,3 +14,4 @@ export {default as OccupationHistory} from './occupancy/OccupationHistory';
 export {default as Login} from './Login';
 export {default as ResetPwd} from './ResetPassword';
 export {default as ChangePwd} from './ChangePassword';
+export{default as CompletedReservationDetail} from "./reservation/CompletedReservationDetail"

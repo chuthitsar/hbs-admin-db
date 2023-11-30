@@ -52,24 +52,31 @@ const ReservationHistory = () => {
   const { token } = useToken();
   const [onFilter,setOnfilter] = useState(false);
   const [ month,setMonth ] = useState(dayjs());
+  // const {data:completedReservations,isLoading,error} = useGetCompletedReservationsQuery();
+
+  // const {data:filterReservaions} = useGetReservationByFilterQuery({
+  //   monthFilter : month?.format('YYYY-MM'),
+  //   ...filterValues
+  // })
+
   const [filterValues,setFilterValues] = useState({
     reservationDate : null,
     checkInDate : null,
     checkOutDate : null
   });
-  const {data:completedReservations,isLoading,error} = useGetCompletedReservationsQuery();
 
-  const {data:filterReservaions} = useGetReservationByFilterQuery({
+  const {data : completedReservations, isLoading, error} = useGetReservationByFilterQuery({
     monthFilter : month?.format('YYYY-MM'),
+    status : "COMPLETED",
     ...filterValues
   })
 
-  const formatCompleted = completedReservations?.map(reservation => transformedData(reservation));
-  const formatFilter = filterReservaions?.map(reservation => transformedData(reservation));
+  const dataSource = completedReservations?.map(reservation => transformedData(reservation));
+  // const formatFilter = filterReservaions?.map(reservation => transformedData(reservation));
 
-  const dataSource = filterValues.reservationDate || filterValues.checkInDate || filterValues.checkOutDate
-  ? formatFilter
-  : formatCompleted;
+  // const dataSource = filterValues.reservationDate || filterValues.checkInDate || filterValues.checkOutDate
+  // ? formatFilter
+  // : formatCompleted;
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -127,7 +134,7 @@ const ReservationHistory = () => {
       title: 'ID',
       dataIndex: 'reservationId',
       filteredValue: [searchText],
-      sorter: (a,b) => a.reservationId - b.reservationId,
+      sorter: (a,b) => b.reservationId - a.reservationId,
       onFilter: (value,record) => {
         return (
           String(record.reservationId).toLowerCase().includes(value.toLowerCase()) ||
@@ -196,7 +203,7 @@ const ReservationHistory = () => {
       dataIndex: 'detail', 
       align: "center",
       render: (_,record) => (
-        <Link to={`/reservations/${record.id}`} style={{textDecoration: 'underline'}}>Detail</Link>
+        <Link to={`/reservations-history/${record.id}`} style={{textDecoration: 'underline'}}>Detail</Link>
         )
     }
   ]
@@ -257,7 +264,7 @@ if (error) {
                 </Form.Item>
                 <Form.Item style={{textAlign: "right"}}>
                   <Space>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" className={`add-btn`} htmlType="submit">
                       Filter
                     </Button>
                     <Button htmlType="reset">Reset</Button>

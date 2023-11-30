@@ -83,6 +83,9 @@ const Reservations = () => {
     monthFilter : month?.format('YYYY-MM'),
    ...filterValues
   })
+
+  console.log(allReservations)
+
   const dataSource = allReservations?.map(item => transformedData(item));
 
   const [reservationId, setReservationId] = useState(null);
@@ -185,7 +188,7 @@ const Reservations = () => {
       title: 'ID',
       dataIndex: 'reservationId',
       filteredValue: [searchText],
-      sorter: (a,b) => a.reservationId - b.reservationId,
+      sorter: (a,b) => b.reservationId - a.reservationId,
       onFilter: (value,record) => {
         return (
           String(record.reservationId).toLowerCase().includes(value.toLowerCase()) ||
@@ -300,7 +303,7 @@ const Reservations = () => {
         }} onChange={(e) => {
           setSearchText(e.target.value)
         }} style={{width: 250}}></Input.Search>
-        <Button type="primary" icon={<ReloadOutlined />} onClick={handleCheckExp}>Check Expired</Button>
+        <Button type="primary" className={`add-btn`} icon={<ReloadOutlined />} onClick={handleCheckExp}>Check Expired</Button>
         <Dropdown trigger={['click']}
         open={onFilter}
         onOpenChange={open => setOnfilter(open)}
@@ -330,7 +333,7 @@ const Reservations = () => {
                 </Space>
                 <Form.Item style={{textAlign: "right"}}>
                   <Space>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" className={`add-btn`} htmlType="submit">
                       Filter
                     </Button>
                     <Button htmlType="reset">Reset</Button>
