@@ -1,0 +1,126 @@
+.header,.action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header{
+    margin-bottom: 30px;
+}
+.action{
+    gap: 20px;
+}
+.confirm-button {
+    background: #389E0D;
+    color: #fff;
+    outline: none;
+    border: none;
+  }
+  .confirm-button:hover {
+    color: #fff;
+  }
+
+  .cancel-button{
+    background: #F5222D;
+    color: #fff;
+    outline: none;
+    border: none;
+  }
+  
+  .confirm-button:disabled,.cancel-button:disabled {
+    background: #A0A0A0; /* Adjust the color for the disabled state */
+    color: #fff;
+  }
+  
+.yes-button{
+    background-color: #389E0D;
+    color: #fff;
+    border: 1px solid #389E0D;
+}
+.no-button{
+    background-color: transparent;
+}
+.button-container{
+  display: flex;
+  gap: 20px;
+}
+.button{
+  padding: 10px 15px;
+  width: 144px; 
+  border: 1px solid #5c5c5c;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
+
+.infos-container,.infos,.info-datas{
+  display: flex;
+}
+.infos-container{
+  gap: 80px;
+  margin: 30px 0;
+}
+.infos{
+  column-gap: 20px;
+}
+.info-datas{
+  flex-direction: column;
+  gap: 10px;
+  font: inherit;
+}
+.guest-info{
+  border: 1px solid #A9A9A9;
+  padding: 20px;
+}
+.guest-info-title{
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.confirm-button,.checkIn-button {
+  background: #389E0D;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 4px;
+}
+
+.cancel-button{
+  background: #F5222D;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 4px;
+}
+
+.confirm-button:disabled,.cancel-button:disabled {
+  background: #A0A0A0; /* Adjust the color for the disabled state */
+  color: #fff;
+}
+.add-header{
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.checkIn-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button-container{
+  display: flex;
+  gap: 20px;
+}
+.button{
+  padding: 10px 15px;
+  width: 144px; 
+  border: 1px solid #5c5c5c;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
